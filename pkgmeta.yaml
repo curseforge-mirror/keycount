@@ -3,6 +3,12 @@ externals:
     Libs/lib-st: 
         url: https://github.com/ddumont/lib-st.git
         tag: latest
+    Libs/AceAddon-3.0:
+        url: https://repos.wowace.com/wow/ace3/trunk/AceAddon-3.0
+    Libs/AceGUI-3.0:
+        url: https://repos.wowace.com/wow/ace3/trunk/AceGUI-3.0
+    libs/LibStub:
+        url: https://repos.wowace.com/wow/libstub/tags/1.0
 license-output: LICENSE
 enable-nolib-creation: no
 manual-changelog: CHANGELOG.txt
