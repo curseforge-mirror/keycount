@@ -1,6 +1,6 @@
-## Interface: 100100
+## Interface: 100107
 ## Title: KeyCount
-## Author: Klanx
+## Author: Vloer
 ## Version: @project-version@
 ## SavedVariables: KeyCountDB
 
@@ -16,3 +16,7 @@ UtilStats.lua
 FilterFunctions.lua
 Gui.lua
 GuiPrepareData.lua
+ExportData.lua
+FormatDataStorage.lua
+
+External\Details.lua

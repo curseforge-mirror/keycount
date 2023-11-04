@@ -9,6 +9,7 @@ local colors = {
     yellow2 = { chat = "|cfffff400", rgb = { r = 255, g = 244, b = 0, a = 1 } },
     lightgreen = { chat = "|cffa3ff00", rgb = { r = 163, g = 255, b = 0, a = 1 } },
     darkgreen = { chat = "|cff2cba00", rgb = { r = 44, g = 186, b = 0, a = 1 } },
+    gold = { chat = "|cffffd700", rgb = { r = 255, g = 215, b = 0, a = 1 } },
     reset = "|r"
 }
 local seasons = {
@@ -17,7 +18,19 @@ local seasons = {
         "Dragonflight-2"
     }
 }
-Defaults = {
+local keyresult = {
+    unknown = { value = 0, name = "Unknown" },
+    abandoned = { value = 1, name = "Abandoned" },
+    outtime = { value = 2, name = "Failed to time" },
+    intime = { value = 3, name = "Timed" },
+}
+local keydata = {
+    name = "",
+    level = 0,
+    affixes = {},
+    timelimit = 0,
+}
+local defaults = {
     dungeonNamesShort = {
         AV = "The Azure Vault",
         RLP = "Ruby Life Pools",
@@ -36,7 +49,22 @@ Defaults = {
         UR = "The Underrot",
         VP = "Vortex Pinnacle"
     },
+    partymember = {
+        role = "",
+        class = "",
+        name = "",
+        deaths = 0,
+        healing = {
+            total = 0,
+            hps = 0
+        },
+        damage = {
+            total = 0,
+            dps = 0
+        }
+    },
     dungeonDefault = {
+        version = 2,
         season = seasons.Dragonflight[2],
         player = "",
         name = "",
@@ -44,37 +72,43 @@ Defaults = {
         startedTimestamp = 0,
         completed = false,
         completedTimestamp = 0,
-        completedInTime = false,
         timeToComplete = "",
         time = 0,
         deaths = {},
         totalDeaths = 0,
-        keyDetails = {
-            level = 0,
-            affixes = {},
-            timeLimit = 0,
-        },
-        date = { ["date"] = "", ["datestring"] = "", ["datetime"] = "" }
+        keydata = keydata,
+        keyresult = keyresult.unknown,
+        date = { ["date"] = "1900-01-01", ["datestring"] = "", ["datetime"] = "1900-01-01 00:00:00" },
+        stars = ""
     },
+    playerDefault = {
+        version = 1,
+        player = "",
+        totalEntries = 0,
+        intime = 0,
+        outtime = 0,
+        abandoned = 0,
+        maxdps = 0,
+        maxhps = 0,
+        role = "",
+        class = "",
+        dungeons = {}
+    },
+    keyresult = keyresult,
     colors = {
         chatAnnounce = colors.cyan.chat,
         chatWarning = colors.yellow.chat,
         chatError = colors.red.chat,
         chatSuccess = colors.green.chat,
-        chatRating = {
-            colors.red.chat,
-            colors.orange.chat,
-            colors.yellow2.chat,
-            colors.lightgreen.chat,
-            colors.darkgreen.chat,
-        },
         rating = {
-            colors.red.rgb,
-            colors.orange.rgb,
-            colors.yellow2.rgb,
-            colors.lightgreen.rgb,
-            colors.darkgreen.rgb,
-        }
+            colors.red,
+            colors.orange,
+            colors.yellow2,
+            colors.lightgreen,
+            colors.darkgreen,
+        },
+        gold = colors.gold,
+        reset = colors.reset,
     },
     dateFormat = "%Y-%m-%d",
     datetimeFormat = "%Y-%m-%d %H:%M:%S",
@@ -82,5 +116,8 @@ Defaults = {
         filterType = "list",
         filter = "alldata"
     },
-    filter = { key = "alldata", value = "" }
+    filter = { key = "alldata", value = "" },
+    dungeonPlusChar = "*",
 }
+
+KeyCount.defaults = defaults

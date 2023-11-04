@@ -38,7 +38,10 @@ This addon is still in beta development, but you can already download it from cu
     - Add option tickboxes to show specific columns
       - Note, affixes, party, details stuff
     - Make GUI side scrollable if it gets too large?
-    - If showing details stuff design it in a readable way
+    - Create custom sorting functions for each column (currently sorts by string value)
+
+## Player success rate
+    - Improve success rate calculation (2 out of 2 is less impressive than 98 out of 100)
 
 ## Notes section
     - At the end of a failed run ask player for a note on that run (popup?)
@@ -46,15 +49,9 @@ This addon is still in beta development, but you can already download it from cu
     - Add 'notes' column to gui (with mouseover or side scrollable)
 
 ## Data filter
-    - Add role filter
+    - Add filter for current week
 
 ## Data storage
-    - Include details data about partymembers
-      - Overall dps
-      - Overall hps
-      - Interrupts
 
-## Export
-    - Create CSV format converter
-      - Create a popup that holds the csv data so you can load it into external programs
-    - Export success rate to chat
+## Bugs
+    - Going out of dungeon disables the call to SetKeyFailed if someone leaves the group while you are outside (sometimes?)
